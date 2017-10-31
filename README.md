@@ -1,2 +1,8 @@
 ## CRA - Redux - Router
-Starter boilder plate
+Starter boiler plate with starter template using:
+
+React
+Redux
+React-Redux
+REDUX-Promise
+Semantic-UI-React
