@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import SearchBar from './containers/SearchBar';
-import { Container, Grid, Header } from 'semantic-ui-react';
+import { BrowserRouter, Route} from 'react-router-dom';
+import MenuTop from './components/MenuTop'
+import PostsIndex from './containers/PostsIndex';
+import PostsShow from './containers/PostsShow';
+import { Container, Grid, Segment, Header } from 'semantic-ui-react';
 
 class App extends Component {
   style = {
@@ -11,20 +14,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container>
-          <Grid>
-            <Grid.Row>
-              <Grid.Column textAlign="center"> 
-                <Header as="h1" style={this.style.h1} color="blue">Weather forecast</Header>     
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row centered>
-              <Grid.Column style={{maxWidth: 500}}>      
-                <SearchBar />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Container>
+        <Segment>
+          <Container>
+            <MenuTop />
+          </Container>
+        </Segment>
+        <Segment vertical style={{minHeight: '500px', padding: '2em 0em'}}> 
+          <BrowserRouter>
+            <Container> 
+              <Route path='/' component={PostsIndex} />
+              <Route path='/posts/:id' component={PostsShow} />
+            </Container>
+          </BrowserRouter>     
+        </Segment>
       </div>
     );
   }
