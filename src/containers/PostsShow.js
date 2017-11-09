@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Segment, Header } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
 
 export default class PostsShow extends Component {
   render() {
