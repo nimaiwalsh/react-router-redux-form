@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Container, Grid, Segment, Header } from 'semantic-ui-react';
+
 import MenuTop from './components/MenuTop'
 import PostsIndex from './containers/PostsIndex';
+import PostsNew from './components/PostsNew';
 import PostsShow from './containers/PostsShow';
-import { Container, Grid, Segment, Header } from 'semantic-ui-react';
 
 class App extends Component {
   style = {
@@ -21,9 +23,12 @@ class App extends Component {
         </Segment>
         <Segment vertical style={{minHeight: '500px', padding: '2em 0em'}}> 
           <BrowserRouter>
-            <Container> 
-              <Route path='/' component={PostsIndex} />
-              <Route path='/posts/:id' component={PostsShow} />
+            <Container>
+              <Switch>
+                <Route path='/posts/new' component={PostsNew} /> 
+                <Route path='/posts/:id' component={PostsShow} />
+                <Route path='/' component={PostsIndex} />
+              </Switch>
             </Container>
           </BrowserRouter>     
         </Segment>

@@ -5,7 +5,7 @@ export default class PostsShow extends Component {
   render() {
     return (
       <div>
-        <Header as='h2'>Post ID</Header>
+        <Header as='h2' content='PostsShow' />
       </div>
     )
   }
