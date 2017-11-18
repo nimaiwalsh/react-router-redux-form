@@ -4,7 +4,8 @@ import { Container, Grid, Segment, Header } from 'semantic-ui-react';
 
 import MenuTop from './components/MenuTop'
 import PostsIndex from './containers/PostsIndex';
-import PostsNew from './components/PostsNew';
+// import PostsNew from './components/PostsNew';
+import PostsNew2 from './components/PostsNew2';
 import PostsShow from './containers/PostsShow';
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
           <BrowserRouter>
             <Container>
               <Switch>
-                <Route path='/posts/new' component={PostsNew} /> 
+                <Route path='/posts/new' component={PostsNew2} /> 
                 <Route path='/posts/:id' component={PostsShow} />
                 <Route path='/' component={PostsIndex} />
               </Switch>
