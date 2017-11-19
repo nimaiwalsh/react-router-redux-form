@@ -6,19 +6,19 @@ import { Button, Form } from 'semantic-ui-react';
 import semanticFormField from './SemanticFormField';
 import validate from './FormValidate';
 
-const options = [
-  { key: '0', text: 'Option 1', value: '0' },
-  { key: '1', text: 'Option 2', value: '1' }
-];
+// const options = [
+//   { key: '0', text: 'Option 1', value: '0' },
+//   { key: '1', text: 'Option 2', value: '1' }
+// ];
 
 const ComponentForm = (props) => {
   return (
-    <Form name="product" onSubmit={props.handleSubmit(props.onSubmit)}>
-      <Field name="selectExample" component={semanticFormField} as={Form.Select} options={options} label="Select label" placeholder="Select an option" />
-      <Field name="title" component={semanticFormField} as={Form.Input} type="text" label="Title" placeholder="Text Input" />
-      <Field name="numberInputExample" component={semanticFormField} as={Form.Input} type="text" label="Number label" placeholder="Number Input" />
-      <Field name="emailInputExample" component={semanticFormField} as={Form.Input} type="email" label="Email label" placeholder="Email Input" />
-      <Button>Submit</Button>
+    <Form onSubmit={props.handleSubmit(props.onSubmit)} error>
+      {/* <Field name="selectExample" component={semanticFormField} as={Form.Select} options={options} label="Select label" placeholder="Select an option" /> */}
+      <Field name="title" component={semanticFormField} as={Form.Input} type="text" label="Title" placeholder="Creat your catching title" />
+      <Field name="categories" component={semanticFormField} as={Form.Input} type="text" label="Categories" placeholder="Seperate using a comma" />
+      <Field name="content" component={semanticFormField} as={Form.TextArea} type="text" label="Post content" placeholder="Starting typing..." />
+      <Button color="green">Post</Button>
     </Form>
   );
 };

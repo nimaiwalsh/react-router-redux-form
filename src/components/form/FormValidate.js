@@ -11,7 +11,7 @@ export default function validate(values) {
     errors.categories = "Enter some categories!";
   }
   if (!values.content) {
-    errors.content = "Bummer, no post without content. Please enter some content!";
+    errors.content = "Bummer, a post without content. Please enter some content!";
   }
   //If errors is empty, the form is fine to submit
   //If errors has *any* properties, redux assumes form is invalid 
