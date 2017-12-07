@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Header, Segment, Button } from 'semantic-ui-react';
+import { Header, Segment, Button, Icon } from 'semantic-ui-react';
 
-import { fetchPost } from '../actions';
+import { fetchPost, deletePost } from '../actions';
 
 class PostsShow extends Component {
   componentDidMount() {
@@ -12,10 +12,18 @@ class PostsShow extends Component {
     this.props.fetchPost(id)
   }
 
+  onDeleteClick() {
+    const { id } = this.props.match.params
+    this.props.deletePost(id, () => {
+      //Router props used to redirect user to another page
+      this.props.history.push('/')
+    })
+  }
+
   render() {
     const { post } = this.props;
-    
-    //Post a loading screen on initial render and watch for fetchPost()
+
+    //Display loading screen on initial render and wait for fetchPost()
     if(!post) {
       return (
         <div>Loading...</div>
@@ -25,11 +33,20 @@ class PostsShow extends Component {
     return (
       <div>
         <Link to='/'>
-            <Button content='Back' color='red' icon='left arrow' labelPosition='left' />
+            <Button content='Back' icon='left arrow' labelPosition='left' />
         </Link>
-        <Header as='h2' content={post.title} attached='top'/>
+        <Button 
+          onClick={this.onDeleteClick.bind(this)}
+          content='Delete Post' 
+          color='red' 
+          icon='delete' 
+          labelPosition='left' 
+          floated='right'
+        />
+        <Header as='h2' content={post.title} attached='top'>
+        </Header>
         <Segment attached>
-          <p>{post.categories}</p>
+          <p>Categories: {post.categories}</p>
           <p>{post.content}</p>
         </Segment>
       </div>
@@ -37,9 +54,9 @@ class PostsShow extends Component {
   }
 }
 
-//Return only the required single post props/state - use ownProps param
+//Return only the required single post from state - use ownProps param
 function mapStateToProps({ posts }, ownProps) {
   return { post: posts[ownProps.match.params.id] }
 }
 
-export default connect(mapStateToProps, { fetchPost })(PostsShow)
+export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow)

@@ -14,7 +14,9 @@ class PostsIndex extends Component {
     return postlist.map((key) => {
         return (
           <Segment key={posts[key].id}>
-            <Header as='h3'>{posts[key].title}</Header>
+            <Link to={`/posts/${posts[key].id}`}>
+              <Header as='h3'>{posts[key].title}</Header>
+            </Link>
             <p>{posts[key].content}</p>
           </Segment>     
         )

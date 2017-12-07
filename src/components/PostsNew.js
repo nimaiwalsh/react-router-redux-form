@@ -33,4 +33,4 @@ class PostsNew extends Component {
   }
 }
 
-export default connect(null,{ createPost })(PostsNew)
+export default connect(null, { createPost })(PostsNew)

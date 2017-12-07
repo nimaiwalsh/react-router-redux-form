@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Container, Grid, Segment, Header } from 'semantic-ui-react';
+import { Container, Segment } from 'semantic-ui-react';
 
 import MenuTop from './components/MenuTop'
 import PostsIndex from './containers/PostsIndex';
