@@ -6,7 +6,7 @@ import MenuTop from './components/MenuTop'
 import PostsIndex from './containers/PostsIndex';
 // import PostsNew from './components/PostsNew';
 import PostsNew from './components/PostsNew';
-import PostsShow from './containers/PostsShow';
+import PostsShow from './components/PostsShow';
 
 class App extends Component {
   style = {

@@ -14,7 +14,11 @@ class PostsNew extends Component {
 
   onSubmit(values) {
     console.log(values);
-    this.props.createPost(values)
+    this.props.createPost(values, () => {
+      //React Router prop - back to homepage
+      this.props.history.push('/');
+    })
+
   };
 
   render() {
