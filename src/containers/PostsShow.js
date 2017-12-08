@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Header, Segment, Button, Icon } from 'semantic-ui-react';
+import { Header, Segment, Button } from 'semantic-ui-react';
 
 import { fetchPost, deletePost } from '../actions';
 
